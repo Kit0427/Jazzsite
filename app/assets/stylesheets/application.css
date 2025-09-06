@@ -236,3 +236,51 @@ a:hover {
   line-height: 1.6;
   margin-bottom: 30px;
 }
+
+.result-display {
+  background-color: #333; /* 結果表示エリアの背景を少し濃く */
+  padding: 30px;
+  margin: 30px 0;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* 内側に影 */
+  text-align: left; /* 箱の中のテキストは左揃えに */
+}
+
+.result-display h3 {
+  font-family: 'Playfair Display', serif;
+  color: #D4AF37; /* 結果のタイプはゴールドに */
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center; /* ジャンル名だけ中央揃え */
+}
+
+.result-display .suggestion {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-top: 25px;
+}
+
+.link-back {
+  margin-top: 40px;
+  display: flex; /* ボタンを横並びにする */
+  justify-content: center; /* 中央に配置 */
+  gap: 20px; /* ボタンの間の隙間 */
+}
+
+/* トップページへ戻るボタン用のスタイル */
+.sub-link-button {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  color: #D4AF37;
+  border: 2px solid #D4AF37;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.sub-link-button:hover {
+  background-color: #D4AF37;
+  color: #1a1a1a;
+}
