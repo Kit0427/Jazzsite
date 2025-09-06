@@ -1,0 +1,27 @@
+<%# app/views/genres/_form.html.erb %>
+
+<%= form_with(model: genre) do |form| %>
+  <div class="field">
+    <%= form.label :title, "タイトル" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre, "説明" %>
+    <%= form.text_area :genre, rows: 5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image, "画像URL" %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link, "関連リンクURL" %>
+    <%= form.text_field :link %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit(form.object.new_record? ? "投稿する" : "更新する") %>
+  </div>
+<% end %>

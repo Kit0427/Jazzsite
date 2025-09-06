@@ -1,0 +1,17 @@
+<div class="top-page-container">
+
+  <h1>Find Your Groove</h1>
+  <p>ジャズってなにからわからない！！という君におすすめの曲を診断！！</p>
+  <p>自分のおすすめの曲をほかのみんなに共有もできる！！</p>
+
+  <%= image_tag 'jazz_top.jpg', alt: 'ジャズのイメージ写真', class: 'top-image' %>
+
+  <div class="cta-container">
+    <%= link_to "あなたにおすすめのジャズを診断する", diagnoses_path, class: "cta-button" %>
+  </div>
+
+  <div class="sub-link">
+    <%= link_to "みんなの投稿を見る →", genres_path %>
+  </div>
+
+</div>

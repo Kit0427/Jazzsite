@@ -1,0 +1,168 @@
+/* app/assets/stylesheets/application.css などに追記 */
+
+/* --- ページ全体の基本設定 --- */
+body {
+  font-family: sans-serif;
+  color: #333;
+}
+
+/* --- トップページ用の設定 --- */
+.top-page-container {
+  max-width: 800px; /* 横幅が広がりすぎないように設定 */
+  margin: 40px auto; /* 上下左右の余白を空けて中央揃え */
+  text-align: center; /* 中の要素を中央揃え */
+}
+
+.top-image {
+  width: 100%;
+  height: auto;
+  margin: 30px 0;
+  border-radius: 8px; /* 画像の角を少し丸くする */
+}
+
+/* --- 行動喚起ボタン(CTA)のスタイル --- */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 40px;
+  background-color: #007bff; /* ボタンの背景色 */
+  color: white; /* ボタンの文字色 */
+  text-decoration: none; /* リンクの下線を消す */
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #0056b3; /* マウスを乗せた時の色 */
+}
+
+.sub-link {
+  margin-top: 20px;
+}
+
+
+/* Google Fontsからお洒落なフォントを読み込みます */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+/* --- ページ全体の基本設定 --- */
+body {
+  background-color: #1a1a1a; /* 背景をダークグレーに */
+  color: #e0e0e0;             /* 基本の文字色を白に近いグレーに */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* 基本のフォント */
+  margin: 0;
+  padding: 20px;
+}
+
+/* --- トップページ用の設定 --- */
+.top-page-container {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* --- h1（メインタイトル）のフォントとスタイル --- */
+.top-page-container h1 {
+  font-family: 'Playfair+Display', serif; /* 読み込んだお洒落なフォントを適用 */
+  color: #ffffff;
+  font-size: 3.5em;
+  font-weight: 700;
+  margin-bottom: 0.2em;
+}
+
+/* --- p（説明文）のスタイル --- */
+.top-page-container p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.top-image {
+  width: 100%;
+  height: auto;
+  margin: 30px 0;
+  border-radius: 8px;
+}
+
+/* --- 行動喚起ボタン(CTA)のスタイル --- */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 40px;
+  background-color: #D4AF37; /* ゴールドのアクセントカラー */
+  color: #1a1a1a;             /* ボタンの文字色はダークグレー */
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid #D4AF37;
+  transition: all 0.3s ease; /* アニメーション効果 */
+}
+
+/* マウスを乗せた時のボタンのスタイル */
+.cta-button:hover {
+  background-color: transparent; /* 背景を透明に */
+  color: #D4AF37;               /* 文字色をゴールドに */
+}
+
+/* --- サブリンクのスタイル --- */
+.sub-link {
+  margin-top: 20px;
+}
+
+.sub-link a { /* divの中のaタグを対象 */
+  color: #D4AF37; /* ゴールドのアクセントカラー */
+  text-decoration: none;
+}
+
+.sub-link a:hover {
+  text-decoration: underline; /* マウスを乗せたら下線を表示 */
+}
+
+/* --- ヘッダーのスタイル --- */
+.site-header {
+  background-color: #111; /* 背景を少し明るい黒に */
+  padding: 15px 30px;
+  border-bottom: 1px solid #333;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between; /* 両端に配置 */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-title a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5em;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+header nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #D4AF37; /* ゴールドのアクセントカラー */
+}
+
+/* --- メインコンテンツの余白 --- */
+.main-content {
+  min-height: calc(100vh - 160px); /* 画面の高さからヘッダーとフッター分を引く */
+}
+
+/* --- フッターのスタイル --- */
+.site-footer {
+  background-color: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #333;
+  font-size: 0.9em;
+}

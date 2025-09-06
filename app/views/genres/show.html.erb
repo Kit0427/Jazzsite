@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= @genre.title %></h1>
+<h3>投稿詳細</h3>
+
+<div class="genre">
+  <p>
+    <strong>説明:</strong><br>
+    <%= @genre.genre %>
+  </p>
+  
+  <% if @genre.image.present? %>
+    <p>
+      <strong>画像:</strong><br>
+      <%= image_tag @genre.image, width: '300' %>
+    </p>
+  <% end %>
+
+  <p>
+    <strong>リンク:</strong><br>
+    <%= link_to "視聴する", @genre.link, target: "_blank", rel: "noopener" %>
+  </p>
+  
+  <p>
+    <small>投稿日時: <%= @genre.created_at.strftime("%Y年%m月%d日") %></small>
+  </p>
+</div>
+
+<hr>
+
+<%= link_to "編集する", edit_genre_path(@genre) %> |
+<%= link_to "一覧に戻る", genres_path %>
