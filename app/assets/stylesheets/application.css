@@ -285,16 +285,3 @@ a:hover {
   background-color: #D4AF37;
   color: #1a1a1a;
 }
-
-.sindanbotan {
-  text-align: center;
-  margin-top: 100px; 
-  display: inline-block;
-  padding: 12px 30px;
-  font-size: 1.1em;
-  color: #D4AF37;
-  border: 2px solid #D4AF37;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
