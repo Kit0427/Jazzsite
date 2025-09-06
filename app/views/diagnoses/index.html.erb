@@ -1,4 +1,14 @@
-<h1>おすすめ曲診断スタート</h1>
-<%= link_to "診断を始める", new_diagnosis_path, class: "link" %>
+<div class="content-box">
 
-<%= link_to "トップページへ戻る", root_path %>
+  <h2>おすすめ曲診断スタート</h2>
+  
+  <p>いくつかの簡単な質問に答えて、あなたにぴったりのジャズを見つけよう。</p>
+
+  <%# 「診断を始める」リンクに、トップページで使ったボタンと同じクラス名を付ける %>
+  <%= link_to '診断を始める', new_diagnosis_path, class: "cta-button" %>
+
+  <div class="sub-link">
+    <%= link_to 'トップページへ戻る', root_path %>
+  </div>
+  
+</div>
