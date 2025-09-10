@@ -1,61 +1,113 @@
 /* ========================================
    1. 基本設定 & フォント読み込み
 ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap');
 
-/* ページ全体の基本設定 */
 body {
   background-color: #1a1a1a;
+  /* 背景に非常に薄いグラデーションをかけて、のっぺり感をなくす */
+  background-image: radial-gradient(circle, #2c2c2c, #1a1a1a);
   color: #e0e0e0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Noto Sans JP', sans-serif; /* 日本語にも対応したフォント */
   margin: 0;
-  padding: 0; /* body自体のpaddingは0に */
+  font-size: 16px; /* 文字の基本サイズ */
+  line-height: 1.8; /* 行間を少し広げて読みやすく */
 }
 
 /* ========================================
-   2. リンクの基本スタイル
+   2. リンクとボタンの最終版スタイル
 ========================================= */
+
+/* 全てのリンクの基本スタイル (訪問済みも含む) */
 a,
 a:visited {
-  color: #D4AF37; /* 基本のリンク色をゴールドに統一 */
+  color: #D4AF37; /* ★基本色はゴールド */
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
+/* 全てのリンクのホバー状態 */
 a:hover {
-  color: #ffffff; /* ホバー時は白に */
+  opacity: 0.8; /* 少し薄くする効果 */
+  color: #ffffff; /* 白に変化 */
+}
+
+/* ボタン共通スタイル */
+.cta-button,
+.sub-link-button {
+  display: inline-block;
+  min-width: 220px;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 2px solid #D4AF37;
+  /* アニメーションのための設定 */
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* プライマリボタン (塗りつぶし) */
+.cta-button {
+  background-color: #D4AF37;
+  color: #1a1a1a !important; /* ★!importantで文字色を最優先 */
+}
+
+/* セカンダリボタン (枠線) */
+.sub-link-button {
+  background-color: transparent;
+  color: #D4AF37;
+}
+
+/* ボタンのホバー状態 */
+.cta-button:hover,
+.sub-link-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* ヘッダーナビゲーションのリンクだけ、ホバー時の色を上書き */
+header nav a:hover {
+  color: #D4AF37;
 }
 
 /* ========================================
-   3. ヘッダー & フッターのスタイル
+   3. ヘッダー & フッター（横幅いっぱい）
 ========================================= */
 .site-header,
 .site-footer {
-  background-color: #111;
-  border-bottom: 1px solid #333;
-  padding: 20px 40px;
+  background-color: rgba(17, 17, 17, 0.8); /* 少し透明感のある黒 */
+  backdrop-filter: blur(10px); /* 背景をぼかす（モダンな表現） */
+  padding: 20px 0;
+  width: 100%;
 }
 
 .site-footer {
-  border-bottom: none;
   border-top: 1px solid #333;
   text-align: center;
   color: #aaa;
   font-size: 0.9em;
 }
 
+/* ヘッダーとフッターの中身を中央に配置するためのコンテナ */
+.header-container,
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .site-title a {
-  font-family: 'Playfair Display', serif;
   font-size: 1.8em;
-  color: #ffffff;
 }
 
 header nav a {
@@ -65,77 +117,37 @@ header nav a {
 }
 
 header nav a:hover {
-  color: #D4AF37; /* ヘッダーのリンクはホバーしてもゴールドのまま */
-}
-
-/* メインコンテンツ（ヘッダーとフッターの間のエリア） */
-.main-content {
-  min-height: calc(100vh - 160px); /* 画面の高さからヘッダーとフッター分を引いて高さを確保 */
-  padding: 20px; /* コンテンツエリアの余白 */
+  color: #D4AF37;
 }
 
 /* ========================================
-   4. 共通コンポーネントのスタイル
+   4. メインコンテンツのスタイル
 ========================================= */
-
-/* トップページ用の外枠 */
-.top-page-container {
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: center;
+.main-content {
+  /* ヘッダーとフッターの高さを考慮して、メインコンテンツが短くてもフッターが追従しないようにする */
+  min-height: calc(100vh - 200px); 
 }
 
-/* 下層ページ用のコンテンツボックス */
-.content-box {
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 40px 50px;
-  background-color: #2a2a2a;
+/* トップページと下層ページで共通して使えるコンテンツボックス */
+.content-box,
+.top-page-container {
+  max-width: 750px;
+  margin: 80px auto;
+  padding: 50px;
+  background-color: rgba(42, 42, 42, 0.8);
   border-radius: 8px;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* 立体感を出すための影 */
 }
 
-/* 共通の見出しスタイル */
-.content-box h2,
-.top-page-container h1 {
-  font-family: 'Playfair Display', serif;
-  color: #ffffff;
-  font-size: 2.5em;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-.top-page-container h1 {
-  font-size: 3.5em;
-}
-
-/* 共通のボタン（プライマリ） */
-.cta-button {
-  display: inline-block;
-  min-width: 220px;
-  padding: 12px 20px;
-  font-size: 1.1em;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-  cursor: pointer;
-  background-color: #D4AF37;
-  color: #1a1a1a;
-  border: 2px solid #D4AF37;
-}
-
-.cta-button:hover {
-  background-color: transparent;
-  color: #D4AF37;
-}
-
-/* 共通のボタン（セカンダリ） */
+/* ========================================
+   5. コンポーネント（ボタンなど）
+========================================= */
+.cta-button,
 .sub-link-button {
   display: inline-block;
   min-width: 220px;
-  padding: 12px 20px;
+  padding: 15px 20px;
   font-size: 1.1em;
   font-weight: bold;
   text-align: center;
@@ -144,15 +156,28 @@ header nav a:hover {
   transition: all 0.3s ease;
   box-sizing: border-box;
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button {
+  background-color: #D4AF37;
+  color: #1a1a1a;
+  border: 2px solid #D4AF37;
+}
+
+.sub-link-button {
   background-color: transparent;
   color: #D4AF37;
   border: 2px solid #D4AF37;
 }
 
+.cta-button:hover,
 .sub-link-button:hover {
-  background-color: #D4AF37;
-  color: #1a1a1a;
+  transform: translateY(-3px); /* 少し浮き上がるアニメーション */
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); /* ゴールドの影 */
 }
+
+/* ... 診断機能に特化したスタイルは省略（既存のままでOK） ... */
 
 /* ========================================
    5. 診断機能に特化したスタイル
