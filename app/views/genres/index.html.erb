@@ -1,37 +1,48 @@
-<h1>Find Your Groove</h1>
-<h3>一覧ページ</h3>
+<div class="content-box">
 
-<h3>投稿を検索</h3>
- <%= form_tag({controller:"genres",action:"index"}, method: :get) do %>
-   <%= text_field_tag :search %>
-   <%= submit_tag '検索する'  %>
-<% end %>
+  <h2>投稿一覧</h2>
 
-<%= link_to "新規投稿へ", new_genre_path %>
-<hr>
+  <div class="cta-container" style="margin-bottom: 30px;">
+    <%= link_to "新しく投稿する", new_genre_path, class: "cta-button" %>
+  </div>
 
-<div class="genre-container">
-  <% @genres.each do |genre| %>
-    <div class="genre-item" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px;">
-      <h2><%= genre.title %></h2>
-      <p><%= genre.genre %></p>
-      
-      <% if genre.image.present? %>
-        <p><%= image_tag genre.image, width: '200' %></p>
-      <% end %>
-      
-      <p>
-        <%= link_to "視聴する", genre.link, target: "_blank", rel: "noopener" %>
-      </p>
+  <hr style="border-color: #444;">
 
-      <p>
-        <%= link_to "詳細へ", genre_path(genre) %> |
-        <%= link_to "編集する", edit_genre_path(genre) %> |
-        <%= link_to "削除する", genre_path(genre), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
-      </p>
-    </div>
-  <% end %>
+  <div class="search-form">
+    <%= form_with(url: genres_path, method: :get, local: true) do |form| %>
+      <%= form.text_field :query, placeholder: "タイトルで検索...", class: "search-field" %>
+      <%= form.submit "検索する", class: "search-button" %>
+    <% end %>
+  </div>
+
+  <hr style="border-color: #444; margin-bottom: 40px;">
+
+  <div class="genre-container">
+    <% @genres.each do |genre| %>
+      <div class="genre-item" style="border: 1px solid #333; padding: 20px; margin-bottom: 20px; border-radius: 8px; text-align: left;">
+        
+        <h2><%= genre.title %></h2>
+        <p><%= genre.genre %></p>
+        
+        <% if genre.image.present? %>
+          <p><%= image_tag genre.image, width: '200' %></p>
+        <% end %>
+        
+        <p>
+          <%= link_to "視聴する", genre.link, target: "_blank", rel: "noopener" %>
+        </p>
+
+        <p>
+          <%= link_to "詳細へ", genre_path(genre) %> |
+          <%= link_to "編集する", edit_genre_path(genre) %> |
+          <%= link_to "削除する", genre_path(genre), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="sub-link" style="margin-top: 40px;">
+    <%= link_to "トップページへ戻る →", root_path %>
+  </div>
+
 </div>
-
-<hr>
-<%= link_to "トップページへ戻る", root_path %>

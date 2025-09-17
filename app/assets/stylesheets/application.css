@@ -279,3 +279,43 @@ img {
   margin: 30px auto; /* 上下の余白と中央揃え */
   border-radius: 8px; /* 角を丸くする */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 画像にも影をつけて立体感を出す */
+
+
+  /* ========================================
+   検索フォームのスタイル
+========================================= */
+.search-form {
+  margin: 30px 0;
+}
+
+.search-field {
+  padding: 12px 15px;
+  min-width: 300px;
+  background-color: #1a1a1a;
+  border: 2px solid #555;
+  border-radius: 5px;
+  color: #e0e0e0;
+  font-size: 1em;
+}
+
+/* 検索フォームがクリックされた（フォーカス）時のスタイル */
+.search-field:focus {
+  border-color: #D4AF37; /* ゴールドの枠線 */
+  outline: none; /* ブラウザのデフォルトの青い枠線を消す */
+}
+
+.search-button {
+  padding: 14px 20px;
+  background-color: #D4AF37;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  opacity: 0.8;
+}
